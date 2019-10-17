@@ -3,3 +3,4 @@ Lab_3 : Lab_3.o
 	rm Lab_3.o
 Lab_3.o : Lab_3.c
 	gcc  -g -c Lab_3.c
+
