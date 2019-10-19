@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #define MAX_L 1024
 
 struct stud
@@ -11,7 +9,7 @@ int Numb;
 int Cash;
 };
 
-void Read(struct stud* Tab, int size_Tab)
+void read(struct stud* Tab, int size_Tab)
 {
 	for(int i=0; i<size_Tab;i++)
 	{
@@ -21,12 +19,12 @@ void Read(struct stud* Tab, int size_Tab)
 	scanf("%s", Tab[i].Grp);
 	printf("Введите номер студента по списку\n");
 	scanf("%d", &Tab[i].Numb);
-	printf("Введите размер стипендии студента\n");	
+	printf("Введите размер стипендии студента\n\n");	
 	scanf("%d", &Tab[i].Cash);	
 	}
 }
 
-struct stud Sort(struct stud* Tab, int size_tab)
+struct stud sort(struct stud* Tab, int size_tab)
 {
 for (int i=0;i<size_tab;i++)
 	{
@@ -45,23 +43,24 @@ for (int i=0;i<size_tab;i++)
 	}
 }
 
-void main()
+void print(struct stud* Tab, int size_tab)
 {
-struct stud Tab [4];
-Read(Tab,4);
-	for(int i=0;i<4;i++)
-	{
+for(int i=0;i<size_tab;i++)
+	{	
 	printf("\n%s",Tab[i].Srnm);
 	printf("\n%s",Tab[i].Grp);
 	printf("\n%d",Tab[i].Numb);
 	printf("\n%d\n",Tab[i].Cash);
 	};
-Sort(Tab,4);
-for(int i=0;i<4;i++)
-	{
-	printf("\n%s",Tab[i].Srnm);
-	printf("\n%s",Tab[i].Grp);
-	printf("\n%d",Tab[i].Numb);
-	printf("\n%d",Tab[i].Cash);
-	};
+}
+
+void main()
+{
+struct stud Tab [4];
+read(Tab,4);
+printf("\nStart tab");
+print(Tab,4);	
+sort(Tab,4);
+printf("\nSorted tab");
+print(Tab,4);
 }
